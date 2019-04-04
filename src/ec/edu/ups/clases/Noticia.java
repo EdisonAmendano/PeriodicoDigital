@@ -1,23 +1,28 @@
 
 package ec.edu.ups.clases;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
-
-
-public class Noticia {
-    
-    /**
+ /**
     * Noticia
     * Calase que permite editar(crear, modificar, eiminar, etc.) las noticias del periodeico digital
     * @since  2019
     * @author Edison
     */
-    
+
+public class Noticia {
+  
     private String titulo;
     private String autor;
     private Date fecha;
     private String contenido;
     private Multimedia multimedia;
+    private String lugar;
+    private SimpleDateFormat formato ;
+    
+    public Noticia(){
+        formato = new SimpleDateFormat("dd/MM/yyyy");
+    }
 
     public String getTitulo() {
         /**
@@ -98,6 +103,28 @@ public class Noticia {
         */
         this.contenido = contenido;
     }
-    
+
+    public Multimedia getMultimedia() {
+        return multimedia;
+    }
+
+    public void setMultimedia(Multimedia multimedia) {
+        this.multimedia = multimedia;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
+
+    @Override
+    public String toString() {
+        return "\n\t\t\t\tNoticia:" + "\n\t\t\t\t\ttitulo: " + titulo + "\n\t\t\t\t\tautor: " + autor + "\n\t\t\t\t\tfecha: " 
+                + formato.format(fecha) + "\n\t\t\t\t\tcontenido: " + contenido + "\n\t\t\t\t\tlugar: " + lugar
+                + "\n\t\t\t\t\tmultimedia: " + multimedia ;
+    }
     
 }
